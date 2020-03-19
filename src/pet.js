@@ -1,18 +1,24 @@
-class Pet {
+const INITIAL_AGE = 0;
 
-  constructor(name){
+class Pet {  
+  constructor(name) {
     this.name = name;
-    //this._sound = 0;
+    this.age = INITIAL_AGE;
+    this.sound_1 = 'Meow';
+    //this.relaxed = 'Meow';
   }
 
-  myPet () {
-    return this.name;
-  }
+  growUp () {
+    console.log(`My name is ${this.name}, I am ${this.age += 1} now and I can ${this.sound_1} when I am relaxed.` );
+  };
+
 
 }
 
-const pet = new Pet('Fido');
-const romy = new Pet('Romy');
+const pet = new Pet('Romy');
+pet.name
+pet.growUp();
+//const romy = new Pet('Romy');
 
 
 module.exports = Pet;
