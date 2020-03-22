@@ -52,6 +52,18 @@ class Pet {
     }
   };
 
+  isAlive () {
+    if (this.fitness <= 0) 
+      return false;
+    if (this.hunger >= 10) 
+      return false;
+    if (this.age >= 30)
+      return false;
+    else
+    return true;
+    
+  };
+
 }
 
 const romy = new Pet('Romy');

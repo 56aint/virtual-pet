@@ -88,6 +88,25 @@ describe('constructor', () => {
       expect(romy.checkUp()).toBe('I feel great!');
     });
 
+    it('tests if Romy is not alive', () => {
+      const romy = new Pet('Romy')
+
+      romy.fitnes = -1;
+      romy.hunger = 11;
+      romy.age = 31;
+
+      expect(romy.isAlive()).toBe(false)
+    });
+
+    it('test if Romy is alive', () => {
+      const romy = new Pet('Romy')
+
+      romy.fitness = 1;
+      romy.hunger = 9;
+      romy.age = 29;
+
+      expect(romy.isAlive()).toBe(true)
+    });
 
 
 
