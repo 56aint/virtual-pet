@@ -4,109 +4,122 @@ describe('constructor', () => {
   it('returns instance of an object', () => {
     expect(new Pet('Romy')).toBeInstanceOf(Object);
   });
-  
+
   it('sets the name property', () => {
     const romy = new Pet('Romy');
     expect(romy.name).toEqual('Romy');
-    
-    //const romy = new Pet('Romy');
-    //expect(romy.name).toEqual('Romy');
   });
 
   it('sets the initial age', () => {
     const romy = new Pet('Romy');
     expect(romy.age).toBe(0);
-    });
+  });
 
-    it('sets the growth in increament of 1', () => {
-      const romy = new Pet('Romy');
-      romy.growUp();
-      expect(romy.age).toBe(1);
-      expect(romy.hunger).toBe(5);
-      expect(romy.fitness).toBe(7);
-    });
+  it('sets the growth in increament of 1', () => {
+    const romy = new Pet('Romy');
 
-    xit('increases fitness by 4', () => {
-      const romy = new Pet('Romy');
-  
-      romy.fitness = 4;
-      romy.walk();
-  
-      expect(romy.fitness).toEqual(8);
-    });
+    romy.growUp();
+    
+    expect(romy.age).toBe(1);
+    expect(romy.hunger).toBe(5);
+    expect(romy.fitness).toBe(7);
+  });
 
-    it('increases fitness by 8 to a maximum of 10', () => {
-      const romy = new Pet('Romy');
-  
-      romy.fitness = 8;
-      romy.walk();
-  
-      expect(romy.fitness).toEqual(10);
-    });
+  xit('increases fitness by 4', () => {
+    const romy = new Pet('Romy');
 
-    it('decreases hunger level by 3', () => {
-      const romy = new Pet('Romy');
+    romy.fitness = 4;
+    romy.walk();
 
-      romy.hunger = 3;
-      romy.feed();
+    expect(romy.fitness).toEqual(8);
+  });
 
-      expect(romy.hunger).toEqual(0);
-    });
+  it('increases fitness by 8 to a maximum of 10', () => {
+    const romy = new Pet('Romy');
 
-    it('to check if romy needs a walk', () => {
-      const romy = new Pet('Romy');
+    romy.fitness = 8;
+    romy.walk();
 
-      romy.fitness = 3;
-      romy.checkUp();
+    expect(romy.fitness).toEqual(10);
+  });
 
-      expect(romy.checkUp()).toBe('I need a walk!');
-    });
+  it('decreases hunger level by 3', () => {
+    const romy = new Pet('Romy');
 
-    it('to check if romy needs to eat', () => {
-      const romy = new Pet('Romy');
+    romy.hunger = 3;
+    romy.feed();
 
-      romy.hunger = 5;
+    expect(romy.hunger).toEqual(0);
+  });
 
-      expect(romy.checkUp()).toBe('I am hungry!');
-    });
+  it('to check if romy needs a walk', () => {
+    const romy = new Pet('Romy');
 
-    it('to check if romy is hungry and needs a walk', () => {
-      const romy = new Pet('Romy');
+    romy.fitness = 3;
+    romy.checkUp();
 
-      romy.hunger = 5;
-      romy.fitness = 3;
-      
-      expect(romy.checkUp()).toBe('I am hungry AND I need a walk!');
-    });
+    expect(romy.checkUp()).toBe('I need a walk!');
+  });
 
-    it('to check if romy is neither hungry nor needs a walk', () => {
-      const romy = new Pet('Romy');
+  it('to check if romy needs to eat', () => {
+    const romy = new Pet('Romy');
 
-      romy.hunger = 0;
-      romy.fitness = 10;
+    romy.hunger = 5;
 
-      expect(romy.checkUp()).toBe('I feel great!');
-    });
+    expect(romy.checkUp()).toBe('I am hungry!');
+  });
 
-    it('tests if Romy is not alive', () => {
-      const romy = new Pet('Romy')
+  it('to check if romy is hungry and needs a walk', () => {
+    const romy = new Pet('Romy');
 
-      romy.fitnes = -1;
-      romy.hunger = 11;
-      romy.age = 31;
+    romy.hunger = 5;
+    romy.fitness = 3;
 
-      expect(romy.isAlive()).toBe(false)
-    });
+    expect(romy.checkUp()).toBe('I am hungry AND I need a walk!');
+  });
 
-    it('test if Romy is alive', () => {
-      const romy = new Pet('Romy')
+  it('to check if romy is neither hungry nor needs a walk', () => {
+    const romy = new Pet('Romy');
 
-      romy.fitness = 1;
-      romy.hunger = 9;
-      romy.age = 29;
+    romy.hunger = 0;
+    romy.fitness = 10;
 
-      expect(romy.isAlive()).toBe(true)
-    });
+    expect(romy.checkUp()).toBe('I feel great!');
+  });
+
+  it('tests if Romy is not alive', () => {
+    const romy = new Pet('Romy')
+
+    romy.fitnes = -1;
+    romy.hunger = 11;
+    romy.age = 31;
+
+    expect(romy.isAlive).toBe(false)
+  });
+
+  it('test if Romy is alive', () => {
+    const romy = new Pet('Romy')
+
+    romy.fitness = 1;
+    romy.hunger = 9;
+    romy.age = 29;
+
+    expect(romy.isAlive).toBe(true)
+  });
+
+ it('test if Romy is not alive', () => {
+    const romy = new Pet('Romy')
+
+    romy.fitness = -1;
+    romy.hunger = 11;
+    romy.age = 31;
+
+    expect(romy.isAlive).toBe(false)
+    expect(() => romy.growUp()).toThrow("Your pet is no longer alive :(");
+    expect(() => romy.walk()).toThrow("Your pet is no longer alive :(");
+    expect(() => romy.feed()).toThrow("Your pet is no longer alive :(");
+    expect(() => romy.checkUp()).toThrow("Your pet is no longer alive :(");
+  });
 
 
 
