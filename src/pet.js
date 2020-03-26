@@ -1,7 +1,5 @@
 const INITIAL_AGE = 0;
-//const INITIAL_HUNGER_LEVEL = 0;
 const MINIMUM_HUNGER_LEVEL = 0;
-//const INITIAL_FITNESS_LEVEL = 10;
 const MAXIMUM_FITNESS_LEVEL = 10;
 
 class Pet {
@@ -35,7 +33,6 @@ class Pet {
     if (!this.isAlive) {
       throw new Error("Your pet is no longer alive :(")
     } else {
-      //this.fitness += 4;
       if ((this.fitness + 4) <= MAXIMUM_FITNESS_LEVEL) {
         this.fitness += 4;
       } else {
@@ -48,13 +45,7 @@ class Pet {
     if (!this.isAlive) {
       throw new Error("Your pet is no longer alive :(")
     } else {
-      //this.hunger -= 3;
-      // the line above you are reassigning the value of hunger to be what it
-      //  was, and -3 from that
-      // below, you are taking this.hunger (the new one that already has
-    // 3 taken off it, so you actually havetaken 6 away
-      if (this.hunger >= MINIMUM_HUNGER_LEVEL) { //confusing      - So here it's just the -3 that is wrong 
-      // and you don't need the line 51 as you carry out the subtraction below
+      if (this.hunger >= MINIMUM_HUNGER_LEVEL) { 
         this.hunger -= 3;
       } else {
         this.hunger = MINIMUM_HUNGER_LEVEL;

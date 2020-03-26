@@ -133,15 +133,11 @@ describe('constructor', () => {
   it('check if child can feed', () => {
 
     const romy = new Pet('Romy');
-    const romlia = new Pet('Romlia');  // I love the name
-  //  you also needed to adopt me first
+    const romlia = new Pet('Romlia');
 
     romy.adoptRomlia(romlia);
     romlia.hunger = 7;
     romy.children[0].feed()
-    //changing .hunger values does not decrease the hunger level by 3
-    // romy.children[0].feed - you need to call this function rather () with braces, that's why it wouldn;t work,
-
 
     expect(romlia.hunger).toEqual(4);
   });
