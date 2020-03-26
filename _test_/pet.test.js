@@ -46,10 +46,10 @@ describe('constructor', () => {
   it('decreases hunger level by 3', () => {
     const romy = new Pet('Romy');
 
-    romy.hunger = 9;
+    romy.hunger = 8;
     romy.feed();
 
-    expect(romy.hunger).toEqual(6);
+    expect(romy.hunger).toEqual(5);
   });
 
   it('to check if romy needs a walk', () => {
@@ -87,7 +87,7 @@ describe('constructor', () => {
     expect(romy.checkUp()).toBe('I feel great!');
   });
 
-  it('tests if Romy is not alive', () => {
+  it('to tests if Romy is not alive', () => {
     const romy = new Pet('Romy')
 
     romy.fitnes = -1;
@@ -136,10 +136,10 @@ describe('constructor', () => {
     const romlia = new Pet('Romlia');
 
     romy.adoptRomlia(romlia);
-    romlia.hunger = 7;
+    romlia.hunger = 8;
     romy.children[0].feed()
 
-    expect(romlia.hunger).toEqual(4);
+    expect(romlia.hunger).toEqual(5);
   });
 
 
