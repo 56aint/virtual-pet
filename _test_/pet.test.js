@@ -19,13 +19,13 @@ describe('constructor', () => {
     const romy = new Pet('Romy');
 
     romy.growUp();
-    
+
     expect(romy.age).toBe(1);
     expect(romy.hunger).toBe(5);
     expect(romy.fitness).toBe(7);
   });
 
-  xit('increases fitness by 4', () => {
+  it('increases fitness by 4', () => {
     const romy = new Pet('Romy');
 
     romy.fitness = 4;
@@ -46,10 +46,10 @@ describe('constructor', () => {
   it('decreases hunger level by 3', () => {
     const romy = new Pet('Romy');
 
-    romy.hunger = 3;
+    romy.hunger = 9;
     romy.feed();
 
-    expect(romy.hunger).toEqual(0);
+    expect(romy.hunger).toEqual(6);
   });
 
   it('to check if romy needs a walk', () => {
@@ -120,6 +120,33 @@ describe('constructor', () => {
     expect(() => romy.feed()).toThrow("Your pet is no longer alive :(");
     expect(() => romy.checkUp()).toThrow("Your pet is no longer alive :(");
   });
+
+  it('checks adoption with D.I', () => {
+    let romy, romlia;
+    romy = new Pet('Romy');
+    romlia = new Pet('Romlia');
+
+    expect(romy.adoptRomlia(romlia)).toEqual([ { name: 'Romlia', age: 0, hunger: 0, fitness: 10} ]);
+    expect(romy.children[0].name).toEqual('Romlia');
+  });
+
+  it('check if child can feed', () => {
+
+    const romy = new Pet('Romy');
+    const romlia = new Pet('Romlia');  // I love the name
+  //  you also needed to adopt me first
+
+    romy.adoptRomlia(romlia);
+    romlia.hunger = 7;
+    romy.children[0].feed()
+    //changing .hunger values does not decrease the hunger level by 3
+    // romy.children[0].feed - you need to call this function rather () with braces, that's why it wouldn;t work,
+
+
+    expect(romlia.hunger).toEqual(4);
+  });
+
+
 
 
 
