@@ -10,7 +10,7 @@ class Pet {
     this.fitness = MAXIMUM_FITNESS_LEVEL;
     /*this.sound = function (soundString) {
       return soundString ? soundString : 'ERROR! PLEASE, I NEED A SOUND'
-    };*/
+    };*/ // this might be needless.
   }
 
 
